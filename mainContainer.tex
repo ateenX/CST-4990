@@ -1,0 +1,291 @@
+\documentclass[oneside]{book}
+% % % % % % % % % % % % % % % % % % % 
+%
+%  USEPACKAGES; kept minimal, these can be ammended but not removed.
+%
+% % % % % % % % % % % % % % % % % % %
+\usepackage{fancyhdr}
+\usepackage{pdfpages}
+\usepackage{graphicx}
+%\usepackage{hyperref}
+\usepackage[utf8]{inputenc}
+\usepackage[colorlinks=true, linkcolor=blue, urlcolor=blue, citecolor=blue, pdfborder={0 0 0}]{hyperref} % removes blue/red boxes on links
+\usepackage{longtable}
+\usepackage{listings}
+\usepackage[acronym]{glossaries}
+\usepackage{multirow}
+\usepackage{amsmath}
+\usepackage{enumitem}
+\usepackage{chapterbib}
+\usepackage{lipsum} % For sample text
+
+%
+% Add other packages here
+%
+
+% % % % % % % % % % % % % % % % % % %
+% 
+% DEFINITIONS FILE
+% Change Values of commands in file: "definitions.tex"
+%
+% % % % % % % % % % % % % % % % % % %
+\input{definitions}
+
+
+
+% % % % % % % % % % % % % % % % % % %
+%
+% needed for glossary
+% comment out as appropriate
+% optional
+%
+% % % % % % % % % % % % % % % % % % %
+\makeglossaries
+\input{glossary}
+
+\begin{document}
+\frontmatter
+% % % % % % % % % % % % % % % % % % %
+% 
+%	TITLEPAGE 
+%	DO NOT CHANGE
+%	MANDATORY
+%
+% % % % % % % % % % % % % % % % % % %
+\begin{titlepage}
+    \begin{center}
+        \includegraphics[scale=1.3]{frontmatter/MDX_MRU_LOGO.jpg} \\
+        {\huge \module\\}	
+        \vspace{2em}
+
+	{\huge \textbf{\thesisTitle \\}}
+	{\large \thesisSubTitle\\}	
+	\vfill
+	
+        \authorName \textbf{\authorStudentName} \\
+        \studentNum \textbf{\authorStudentNum}\\
+        \supervisor \supervisorName \\
+        \vfill
+        
+ 	\moduleCoordinator \\
+  	\moduleLeader \\
+        \vspace{1em}
+	\deptName \\
+	\uniName \\
+	\campus
+	\vfill
+    % update the command based on the report.. i.e., EITHER \proposal OR \thesis
+	This \documentType is submitted for the degree of \\
+	\degree \\
+	\degreeTitle \\
+ 	\vfill
+	Submission Date: \today 
+
+    \end{center}
+
+\end{titlepage}
+\newpage
+
+% % % % % % % % % % % % % % %
+%
+%	DECLARATION PAGE - 
+%	DO NOT EDIT
+%	MANDATORY
+%   INCLUDE ONLY IN FINAL REPORT!!!
+%	File: frontmatter/declarations.tex
+%
+% % % % % % % % % % % % % % %
+\chapter*{Declaration}
+	\input{frontmatter/declaration}
+	%adds the declaration to the table of contents
+	\addcontentsline{toc}{section}{Declaration}
+	\newpage
+
+% % % % % % % % % % % % % % %
+%
+%	ABSTRACT
+%	EDIT
+%	MANDATORY
+%   INCLUDE ONLY IN FINAL REPORT!!!
+%	File: frontmatter/abstract.tex
+%	
+% % % % % % % % % % % % % % %
+
+% AN OPTIONAL PART OF THE REPORT. REMOVE IF YOU DO NOT HAVE AN ABSTRACT
+\chapter*{Abstract}
+	\input{frontmatter/abstract}
+	%adds the abstract to the table of contents
+	\addcontentsline{toc}{section}{Abstract}
+
+% % % % % % % % % % % % % % % %
+%
+%	AKNOWLEDGEMENTS
+%	EDIT
+%	OPTIONAL
+%	File: frontmatter/acknowledgements.tex 
+%
+% % % % % % % % % % % % % % % %
+\chapter*{Acknowledgements}
+	\input{frontmatter/acknowledgements}
+	%adds acknowledgements to the table of contents
+	\addcontentsline{toc}{section}{Acknowledgements}
+	\newpage
+	
+% % % % % % % % % % % % % % % %
+%
+%	TABLE OF CONTENTS
+%	DO NOT EDIT	
+%	AUTOMATICALLY GENERATED
+%	MANDATORY	
+%
+% % % % % % % % % % % % % % % %
+\tableofcontents
+
+% % % % % % % % % % % % % % % %
+%
+%	LIST OF FIGURES 
+%	EDIT AS APPROPRIATE
+%	AUTOMATICALLY GENERATED
+%	OPTIONAL	
+%
+% % % % % % % % % % % % % % % %
+\listoffigures
+
+% % % % % % % % % % % % % % % %
+%
+%	LIST OF TABLES 
+%	EDIT AS APPROPRIATE
+%	AUTOMATICALLY GENERATED
+%	OPTIONAL	
+%
+% % % % % % % % % % % % % % % %
+\listoftables
+
+
+% % % % % % % % % % % % % % % %
+%
+%	GLOSSARY 
+%	EDIT AS APPROPRIATE
+%	AUTOMATICALLY GENERATED
+%	OPTIONAL	
+%	requires lines 38-39 uncommented
+%
+% % % % % % % % % % % % % % % %
+\printglossary[title=Acronyms, type=\acronymtype]
+\printglossary
+
+
+
+\mainmatter
+% % % % % % % % % % % % % % % % % %
+%
+%	HEADERS & FOOTERS
+%	DO NOT EDIT
+%	MANDATORY
+%
+% % % % % % % % % % % % % % % % % % %
+\pagestyle{fancy}
+\rhead{\leftmark}
+\lhead{\empty}
+\lfoot{\empty}
+\cfoot{\thepage}
+\rfoot{\empty}
+
+% \pagestyle{fancy}
+% \fancyhf{} % Clear all header and footer fields
+% % Update the left header with the chapter title using \leftmark
+% \fancyhead[R]{Chapter \thechapter: \leftmark}
+% \renewcommand{\chaptermark}[1]{\markboth{#1}{}}
+
+
+% % % % % % % % % % % % % % % %
+%
+% 	CONTENT
+% 	EDIT
+% % % % % % % % % % % % % % % %
+\chapter{Introduction}
+\input{ch1/ch1}
+
+\chapter{Literature Review}
+\input{ch2/ch2}
+
+\chapter{Analysis \& Design $\mid$ Research Methodology}
+\input{ch3/ch3}
+
+\chapter{Implementation \& Testing $\mid$ Analysis}
+\input{ch4/ch4}
+
+\chapter{Evaluation $\mid$ Research Results}
+\input{ch5/ch5}
+
+\chapter{Conclusion \& Future Work}
+\input{ch6/ch6}
+
+
+% % % % % % % % % % % % % % % %
+%
+% 	BIBLIOGRAPHY 
+%	MANDATORY 
+% 	Use basic BiBTex options, IEEE-like numbered references
+% 	file: references.tex
+%
+% % % % % % % % % % % % % % % %
+\bibliographystyle{plain}
+\addcontentsline{toc}{chapter}{Bibliography}
+\bibliography{references}
+
+
+% % % % % % % % % % % % % % % %
+%
+% 	Sample Structure for your VIVA Slides. Adapt from the structure
+%   Remove this section when writing the report
+%
+% % % % % % % % % % % % % % % %
+\chapter*{VIVA Slides Structure}
+    \begin{enumerate}
+        \item Cover Slide \\
+        Include your Name, Student number and Project title.
+        \item Background \\
+        Present a short overview of the topic being studied and undertaken as part of the project.
+        \item Problem Description \\
+        Address clearly the problem that you are intending to solve.
+        \item Existing Solutions/Research \\
+        Here you can give a comparative table like in Chapter 2 Literature Review, Or compare and discuss other existing products/solutions you investigated.
+        \item Proposed Solution/Analysis Conducted \\
+            Development based Project Structure (\textit{Proposed Solution}):
+                \begin{itemize}
+                    \item Present all the features of your proposed artefact. Add screenshots as well. Specify how it is going to solve the problem that you have identified and how (again linked to the Problem Statement and Aims/Objectives).
+                \end{itemize}
+        
+        Research based Project Structure (\textit{Analysis Conducted}):
+                \begin{itemize}
+                    \item Discuss the Research Methodology, method chosen for Analysis and the outcome of the Analysis. Provide the Limitations around the end. You should justify why the chosen method..\\
+                    \item Finally, the discussion should be about the findings of the analysis and how it helps solve the Research Questions.
+                \end{itemize}
+        \item Evaluation/Results \\
+        How you evaluated your proposed solution / OR results given. Present the results (including key stats if any).
+        \item Conclusion \\
+        You can include a brief concluding slide at the end.
+        \item References \\
+        List of all references used in the slides.
+
+    \end{enumerate}
+
+
+% % % % % % % % % % % % % % % %
+%
+% 	Appnendix		
+%	OPTIONAL	
+% 	file: appendix/meetings.pdf 
+%   Include any additional supporting content which might break the flow of the report
+%   Any additional data, graphs, questionnaire, Ethics approval or Ethics Screening Form, User Guide/Manual
+%   Try to structure it logically
+%
+% % % % % % % % % % % % % % % %
+\appendix
+\part*{Appendices}
+\addcontentsline{toc}{part}{Appendices}
+
+\input{appendix/appendices}
+
+\end{document}
